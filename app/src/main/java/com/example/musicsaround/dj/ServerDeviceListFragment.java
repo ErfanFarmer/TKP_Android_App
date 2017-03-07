@@ -16,13 +16,7 @@
 
 package com.example.musicsaround.dj;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import NanoHTTPD.NanoHTTPD;
-import NanoHTTPD.SimpleWebServer;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.app.ProgressDialog;
@@ -49,6 +43,14 @@ import android.widget.Toast;
 
 import com.example.musicsaround.R;
 import com.example.musicsaround.Utilities;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import NanoHTTPD.NanoHTTPD;
+import NanoHTTPD.SimpleWebServer;
 
 /**
  * A ListFragment that displays available peers on discovery and requests the
@@ -94,7 +96,7 @@ public class ServerDeviceListFragment extends ListFragment implements
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState)
+							 Bundle savedInstanceState)
 	{
 		mContentView = inflater.inflate(R.layout.connected_list, null);
 
@@ -103,9 +105,9 @@ public class ServerDeviceListFragment extends ListFragment implements
 
 	/*
 	 * When this fragment is no longer visible, then disconnect the server
-	 * 
+	 *
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see android.app.ListFragment#onDestroyView()
 	 */
 	@Override
@@ -226,7 +228,7 @@ public class ServerDeviceListFragment extends ListFragment implements
 		 * @param objects
 		 */
 		public WiFiPeerListAdapter(Context context, int textViewResourceId,
-				List<WifiP2pDevice> objects)
+								   List<WifiP2pDevice> objects)
 		{
 			super(context, textViewResourceId, objects);
 			items = objects;
@@ -285,7 +287,7 @@ public class ServerDeviceListFragment extends ListFragment implements
 
 	/**
 	 * Update UI for this device.
-	 * 
+	 *
 	 * @param device
 	 *            WifiP2pDevice object
 	 */
@@ -341,9 +343,9 @@ public class ServerDeviceListFragment extends ListFragment implements
 
 	/*
 	 * We got a connection!
-	 * 
+	 *
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener#
 	 * onConnectionInfoAvailable(android.net.wifi.p2p.WifiP2pInfo)
 	 */
@@ -436,6 +438,7 @@ public class ServerDeviceListFragment extends ListFragment implements
 		}
 	}
 
+	@SuppressLint("LongLogTag")
 	public void playMusicOnClients(File musicFile, long startTime, int startPos)
 	{
 		if (serverThread == null)

@@ -1,28 +1,20 @@
 package com.example.musicsaround.dj;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import com.example.musicsaround.Timer;
 
 /**
  * The implementation of a ServerSocket handler. This is used by the wifi p2p
  * group owner.
  */
+
 /**
  * @author Bryan Yan
  */
@@ -207,7 +199,7 @@ public class GroupOwnerSocketHandler extends Thread
 						String[] cmdString = recMsg.split(CMD_DELIMITER);
 
 						if (cmdString[0]
-								.equals(GroupOwnerSocketHandler.SYNC_CMD)
+								.equals(SYNC_CMD)
 								&& cmdString.length > 1)
 						{
 							ackReceived = true;

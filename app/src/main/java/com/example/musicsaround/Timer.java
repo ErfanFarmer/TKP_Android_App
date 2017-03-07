@@ -1,12 +1,7 @@
 package com.example.musicsaround;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -202,7 +197,7 @@ public class Timer
 	 *            - the future time to play music
 	 */
 	public void playFutureMusic(MediaPlayer mp, long futureTime,
-			long playPosition)
+								long playPosition)
 	{
 		// we assume the media player is in a good state!
 		futurePlayTime = futureTime;

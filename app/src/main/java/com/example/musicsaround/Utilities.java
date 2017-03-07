@@ -1,16 +1,16 @@
 package com.example.musicsaround;
 
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import android.app.Activity;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
 
 public class Utilities
 {

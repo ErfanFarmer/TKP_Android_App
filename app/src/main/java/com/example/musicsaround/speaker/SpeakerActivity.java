@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 import com.example.musicsaround.R;
 import com.example.musicsaround.Timer;
-import com.example.musicsaround.dj.DJActivity;
 import com.example.musicsaround.speaker.ClientDeviceListFragment.SpeakerFragmentListener;
 
 public class SpeakerActivity extends Activity implements ChannelListener,
@@ -342,7 +341,7 @@ public class SpeakerActivity extends Activity implements ChannelListener,
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.example.musicsaround.dj.ServerDeviceListFragment.DJFragmentListener
+	 * com.example.ServerDeviceListFragment.DJFragmentListener
 	 * #cancelDisconnect()
 	 */
 	@Override

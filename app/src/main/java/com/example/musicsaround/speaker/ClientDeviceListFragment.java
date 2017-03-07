@@ -16,9 +16,6 @@
 
 package com.example.musicsaround.speaker;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.ListFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -44,6 +41,9 @@ import android.widget.Toast;
 import com.example.musicsaround.R;
 import com.example.musicsaround.Timer;
 import com.example.musicsaround.dj.GroupOwnerSocketHandler;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A ListFragment that displays available peers on discovery and requests the

@@ -1,24 +1,39 @@
 package com.example.musicsaround;
 
-import com.example.musicsaround.dj.DJActivity;
-import com.example.musicsaround.speaker.SpeakerActivity;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
+
+import com.example.musicsaround.dj.DJActivity;
+import com.example.musicsaround.speaker.SpeakerActivity;
 
 public class MainActivity extends Activity
 {
 	// public key for other activities to access to figure out the mode
 	public final static String MODE = "MODE";
+	private Button btnLogout;
+	private Session session;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		session = new Session(this);
+		if(!session.loggedin()){
+			logout();
+		}
+		btnLogout = (Button)findViewById(R.id.btnLogout);
+		btnLogout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				logout();
+			}
+		});
 	}
 
 	@Override
@@ -41,5 +56,11 @@ public class MainActivity extends Activity
 		Intent intent = new Intent(this, SpeakerActivity.class);
 		intent.putExtra(MODE, SpeakerActivity.SPEAKER_MODE);
 		startActivity(intent);
+	}
+
+	private void logout(){
+		session.setLoggedin(false);
+		finish();
+		startActivity(new Intent(MainActivity.this,LoginActivity.class));
 	}
 }

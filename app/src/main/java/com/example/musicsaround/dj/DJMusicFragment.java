@@ -1,10 +1,5 @@
 package com.example.musicsaround.dj;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -13,7 +8,6 @@ import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +22,11 @@ import com.example.musicsaround.R;
 import com.example.musicsaround.SongsManager;
 import com.example.musicsaround.Timer;
 import com.example.musicsaround.Utilities;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 
 public class DJMusicFragment extends Fragment implements OnCompletionListener,
 		SeekBar.OnSeekBarChangeListener
@@ -60,7 +59,7 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 	private boolean isRepeat = false;
 	private ArrayList<HashMap<String, String>> songsList = new ArrayList<HashMap<String, String>>();
 
-	private DJActivity mActivity = null;
+	private com.example.musicsaround.dj.DJActivity mActivity = null;
 	private View mContentView = null;
 	private Timer musicTimer = null;
 	private final static long DELAY = 4500;
@@ -80,12 +79,12 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 	public void onAttach(Activity activity)
 	{
 		super.onAttach(activity);
-		mActivity = (DJActivity) activity;
+		mActivity = (com.example.musicsaround.dj.DJActivity) activity;
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState)
+							 Bundle savedInstanceState)
 	{
 		super.onCreateView(inflater, container, savedInstanceState);
 		mContentView = inflater.inflate(R.layout.fragment_dj_music, null);
@@ -148,7 +147,7 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 						mp.pause();
 						currentPlayPosition = mp.getCurrentPosition();
 
-						((DJActivity) mActivity).stopRemoteMusic();
+						((com.example.musicsaround.dj.DJActivity) mActivity).stopRemoteMusic();
 
 						// Changing button image to play button
 						btnPlay.setImageResource(R.drawable.btn_play);
@@ -400,9 +399,9 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 	// }
 	// }
 
-	/**
+	/*
 	 * Function to play a song
-	 * 
+	 *
 	 * @param songIndex
 	 *            - index of song
 	 */
@@ -443,7 +442,7 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 			startSyncDialog();
 
 			// first stop the remote music
-			((DJActivity) mActivity).stopRemoteMusic();
+			((com.example.musicsaround.dj.DJActivity) mActivity).stopRemoteMusic();
 
 			if (songsList.isEmpty())
 			{
@@ -585,7 +584,7 @@ public class DJMusicFragment extends Fragment implements OnCompletionListener,
 	 * */
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
-			boolean fromTouch)
+								  boolean fromTouch)
 	{
 
 	}

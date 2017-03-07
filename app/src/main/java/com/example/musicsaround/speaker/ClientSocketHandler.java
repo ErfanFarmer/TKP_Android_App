@@ -1,8 +1,10 @@
 package com.example.musicsaround.speaker;
 
 import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
+
+import com.example.musicsaround.Timer;
+import com.example.musicsaround.dj.GroupOwnerSocketHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,10 +13,6 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
-import java.nio.ByteBuffer;
-
-import com.example.musicsaround.Timer;
-import com.example.musicsaround.dj.GroupOwnerSocketHandler;
 
 public class ClientSocketHandler extends Thread
 {

@@ -1,7 +1,5 @@
 package com.example.musicsaround.dj;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -31,6 +29,8 @@ import com.example.musicsaround.R;
 import com.example.musicsaround.Timer;
 import com.example.musicsaround.Utilities;
 import com.example.musicsaround.dj.ServerDeviceListFragment.DJFragmentListener;
+
+import java.io.File;
 
 public class DJActivity extends Activity implements ChannelListener,
 		DJFragmentListener
@@ -300,7 +300,7 @@ public class DJActivity extends Activity implements ChannelListener,
 	 */
 	public void resetDeviceList()
 	{
-		ServerDeviceListFragment fragmentList = (ServerDeviceListFragment) getFragmentManager()
+		com.example.musicsaround.dj.ServerDeviceListFragment fragmentList = (com.example.musicsaround.dj.ServerDeviceListFragment) getFragmentManager()
 				.findFragmentById(R.id.frag_djs_devices);
 
 		if (fragmentList != null)
@@ -358,11 +358,11 @@ public class DJActivity extends Activity implements ChannelListener,
 	/*
 	 * Cancel an ongoing connection in progress. We won't actually use this
 	 * method all that much
-	 * 
+	 *
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
-	 * com.example.musicsaround.dj.ServerDeviceListFragment.DJFragmentListener
+	 * com.example.ServerDeviceListFragment.DJFragmentListener
 	 * #cancelDisconnect()
 	 */
 	@Override
@@ -377,7 +377,7 @@ public class DJActivity extends Activity implements ChannelListener,
 		{
 			Log.d(TAG, "Someone requested a cancel connect!");
 
-			final ServerDeviceListFragment fragment = (ServerDeviceListFragment) getFragmentManager()
+			final com.example.musicsaround.dj.ServerDeviceListFragment fragment = (com.example.musicsaround.dj.ServerDeviceListFragment) getFragmentManager()
 					.findFragmentById(R.id.frag_djs_devices);
 
 			if (fragment.getDevice() == null
@@ -420,11 +420,11 @@ public class DJActivity extends Activity implements ChannelListener,
 
 	/*
 	 * This is the main method to connect to a device through Wi-Fi Direct!
-	 * 
+	 *
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
-	 * com.example.musicsaround.dj.ServerDeviceListFragment.DJFragmentListener
+	 * com.example.ServerDeviceListFragment.DJFragmentListener
 	 * #connect(android.net.wifi.p2p.WifiP2pConfig)
 	 */
 	@Override
@@ -450,7 +450,7 @@ public class DJActivity extends Activity implements ChannelListener,
 			@Override
 			public void onFailure(int reason)
 			{
-				Toast.makeText(DJActivity.this,
+				Toast.makeText(com.example.musicsaround.dj.DJActivity.this,
 						"Connection failed. Retrying...", Toast.LENGTH_SHORT)
 						.show();
 				Log.e(TAG,
@@ -482,7 +482,7 @@ public class DJActivity extends Activity implements ChannelListener,
 			@Override
 			public void onSuccess()
 			{
-				Toast.makeText(DJActivity.this, "Disconnected a device.",
+				Toast.makeText(com.example.musicsaround.dj.DJActivity.this, "Disconnected a device.",
 						Toast.LENGTH_SHORT).show();
 				Log.d(TAG, "Disconnected from a device.");
 			}
@@ -500,7 +500,7 @@ public class DJActivity extends Activity implements ChannelListener,
 
 	public void playRemoteMusic(Uri musicFileURI, long startTime, int startPos)
 	{
-		ServerDeviceListFragment fragmentList = (ServerDeviceListFragment) getFragmentManager()
+		com.example.musicsaround.dj.ServerDeviceListFragment fragmentList = (com.example.musicsaround.dj.ServerDeviceListFragment) getFragmentManager()
 				.findFragmentById(R.id.frag_djs_devices);
 
 		// convert URI to actual file path
@@ -513,9 +513,9 @@ public class DJActivity extends Activity implements ChannelListener,
 	}
 
 	public void playRemoteMusic(String musicFilePath, long startTime,
-			int startPos)
+								int startPos)
 	{
-		ServerDeviceListFragment fragmentList = (ServerDeviceListFragment) getFragmentManager()
+		com.example.musicsaround.dj.ServerDeviceListFragment fragmentList = (com.example.musicsaround.dj.ServerDeviceListFragment) getFragmentManager()
 				.findFragmentById(R.id.frag_djs_devices);
 
 		File audioFile = new File(musicFilePath);
@@ -525,7 +525,7 @@ public class DJActivity extends Activity implements ChannelListener,
 
 	public void stopRemoteMusic()
 	{
-		ServerDeviceListFragment fragmentList = (ServerDeviceListFragment) getFragmentManager()
+		com.example.musicsaround.dj.ServerDeviceListFragment fragmentList = (ServerDeviceListFragment) getFragmentManager()
 				.findFragmentById(R.id.frag_djs_devices);
 		fragmentList.stopMusicOnClients();
 	}

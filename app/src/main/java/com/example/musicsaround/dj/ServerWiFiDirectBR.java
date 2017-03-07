@@ -16,9 +16,6 @@ package com.example.musicsaround.dj;
  * the License.
  */
 
-import com.example.musicsaround.R;
-
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -26,9 +23,10 @@ import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
-import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.util.Log;
+
+import com.example.musicsaround.R;
 
 /**
  * A BroadcastReceiver that notifies of important wifi p2p events.
@@ -39,7 +37,7 @@ public class ServerWiFiDirectBR extends BroadcastReceiver
 
 	private WifiP2pManager manager;
 	private Channel channel;
-	private DJActivity activity;
+	private com.example.musicsaround.dj.DJActivity activity;
 
 	/**
 	 * @param manager
@@ -50,7 +48,7 @@ public class ServerWiFiDirectBR extends BroadcastReceiver
 	 *            activity associated with the receiver
 	 */
 	public ServerWiFiDirectBR(WifiP2pManager manager, Channel channel,
-			DJActivity activity)
+							  DJActivity activity)
 	{
 		super();
 		this.manager = manager;
@@ -60,7 +58,7 @@ public class ServerWiFiDirectBR extends BroadcastReceiver
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see android.content.BroadcastReceiver#onReceive(android.content.Context,
 	 * android.content.Intent)
 	 */
